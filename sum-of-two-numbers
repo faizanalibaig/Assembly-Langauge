@@ -1,0 +1,55 @@
+include 'emu8086.inc'
+
+.model small
+.stack 100h
+
+.data
+
+.code
+main proc  
+    
+    print 'Enter your first number: '
+
+    
+    mov ah, 01h
+    int 21h
+    sub al, 48      ; Convert ASCII to number
+    mov bl, al      ; Store in bl
+
+    
+    mov ah, 02h
+    mov dl, 0Dh     ; Carriage Return
+    int 21h
+    mov dl, 0Ah     ; Line Feed
+    int 21h
+
+    
+    print 'Enter your second number: '
+
+    
+    mov ah, 01h
+    int 21h
+    sub al, 48      ; Convert ASCII to number
+
+    
+    mov bh, al      
+
+    
+    add bl, bh      
+    add bl, 48      
+
+    
+    mov ah, 02h
+    mov dl, 0Dh
+    int 21h
+    mov dl, 0Ah
+    int 21h
+
+    
+    print 'Your sum is: '
+    mov ah, 02h
+    mov dl, bl    
+    int 21h
+
+main endp
+end main
