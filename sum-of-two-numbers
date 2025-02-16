@@ -1,7 +1,7 @@
-include 'emu8086.inc'
+include 'emu8086.inc'     ; library for easiness
 
-.model small
-.stack 100h
+.model small              ; small model  
+.stack 100h              ; stack size defined
 
 .data
 
